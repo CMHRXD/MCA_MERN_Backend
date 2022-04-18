@@ -10,6 +10,7 @@ app.use(express.json());
 connectionDB();
 
 //Para permitir acceso de otros dominios a nuestra api
+/*
 const allowedDomains = [process.env.FRONTEND_URL];
 const corsOptions = {
     origin: function(origin, callback){
@@ -22,6 +23,7 @@ const corsOptions = {
     }
 }
 app.use(cors(corsOptions));
+*/
 
 //Define Host and Port
 //const host = process.env.HOST || '0.0.0.0';
