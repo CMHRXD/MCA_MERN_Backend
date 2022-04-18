@@ -7,7 +7,7 @@ const Dr_routes = express.Router();
 //Public Area
 Dr_routes.post("/", signUp);
 Dr_routes.get('/confirm/:token', confirm)
-Dr_routes.post("login",authenticate);
+Dr_routes.post("/login",authenticate);
 Dr_routes.post("/password-forgot", passowrdForgot)
 Dr_routes.route("/password-forgot/:token").get(checkToken).post(changePassowrd)
 
