@@ -10,20 +10,21 @@ app.use(express.json());
 connectionDB();
 
 //Para permitir acceso de otros dominios a nuestra api
-/*
+
 const allowedDomains = [process.env.FRONTEND_URL];
 const corsOptions = {
     origin: function(origin, callback){
-        if(allowedDomains.indexOf(origin) !== -1){
-            callback(null,true);
-        }else{
-            callback(new Error("Not Allowed"));
+        if(!origin) return callback(null, true);
+        if(allowedDomains.indexOf(origin) === -1){
+            const msg = 'The CORS policy for this site does not ' +
+            'allow access from the specified Origin.';
+            return callback(new Error(msg), false);
         }
-
+        return callback(null, true);
     }
 }
 app.use(cors(corsOptions));
-*/
+
 
 //Define Host and Port
 //const host = process.env.HOST || '0.0.0.0';
