@@ -12,29 +12,17 @@ const pacientsTable = mongoose.Schema({
         type: String,
         require:true,
     },
-    email:{
-        type: String,
-        require:true,
-        unique:true,
-    },
-    consult_date:{
-        type: Date,
-        require:true,
-        default: Date.now(),
-    },
-    symptom:{
+    phone:{
         type: String,
         require:true,
     },
-    
+
     doctor:{
         type: mongoose.Schema.Types.ObjectId,
         ref:'Doctor',
     },
-}, {timestamps:true}
+}, {timestamps:true});
 
-);
-
-const Pacients = mongoose.model('Pacientes', pacientsTable)
+const Pacients = mongoose.model('Pacients', pacientsTable)
 
 export default Pacients;

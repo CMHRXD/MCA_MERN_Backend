@@ -1,8 +1,17 @@
 import express  from "express";
 import connectionDB from "./config/db.js";
+
+//Routes
 import Dr_routes from "./routes/doctors_routes.js";
 import pacientsRoutes from "./routes/pacients_routes.js";
+import productsRoutes from "./routes/products_routes.js";
+import servicesRoutes from "./routes/services_routes.js";
+import datesRoutes from "./routes/dates_routes.js";
+import consultRoutes from "./routes/consult_routes.js";
+
+
 import cors from 'cors'; //Protege los accesos a la API
+
 
 const app = express();
 
@@ -25,7 +34,6 @@ const corsOptions = {
 }
 app.use(cors(corsOptions));
 
-
 //Define Host and Port
 //const host = process.env.HOST || '0.0.0.0';
 const port = process.env.PORT || 5000;
@@ -33,8 +41,10 @@ const port = process.env.PORT || 5000;
 
 app.use("/api/doctors", Dr_routes);
 app.use("/api/pacients", pacientsRoutes);
-
-
+app.use("/api/products", productsRoutes);
+app.use("/api/services", servicesRoutes);
+app.use("/api/dates", datesRoutes);
+app.use("/api/consults", consultRoutes);
 
 app.listen(port,()=>{
     console.log(`El servidor se esta ejecutando en el Port:${port}`);

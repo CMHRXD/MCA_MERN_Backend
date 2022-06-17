@@ -9,7 +9,6 @@ const pacientsRoutes = express.Router();
 
 //Add a pacient - Get all pacients
 pacientsRoutes.route('/').post(checkAuth,addPacients).get(checkAuth,getPacients);
-
 //Get-modify-delet one pacient
 pacientsRoutes.route('/:id').get(checkAuth,getPacient).put(checkAuth,updatePacient).delete(checkAuth,deletePacient)
 

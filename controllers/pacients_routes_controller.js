@@ -38,16 +38,14 @@ const updatePacient = async(req, res) => {
 
     try {
         const pacient = await Pacients.findById(id);
+        if(pacient === null) return res.json("Paciente no encontrado");
         
         if(pacient.doctor._id.toString() != req.doctor._id.toString()){ //Convert to string because they are object id
             return res.json("Acceso Invalido")
         }
-
         pacient.name = req.body.name || pacient.name;
-        pacient.consult_date = req.body.consult_date || pacient.consult_date;
         pacient.c_i = req.body.c_i || pacient.c_i;
-        pacient.email = req.body.email || pacient.email;
-        pacient.symptom = req.body.symptom || pacient.symptom;
+        pacient.phone = req.body.phone || pacient.phone;
 
         await pacient.save();
         
@@ -61,6 +59,7 @@ const deletePacient = async(req, res) => {
 
     try {
         const pacient = await Pacients.findById(id);
+        if(pacient === null) return res.json("Paciente no encontrado");
 
         if(pacient.doctor._id.toString() != req.doctor._id.toString()){ //Convert to string because they are object id
             return res.json("Acceso Invalido")
