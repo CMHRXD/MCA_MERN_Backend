@@ -13,12 +13,9 @@ import consultRoutes from "./routes/consult_routes.js";
 import cors from 'cors'; //Protege los accesos a la API
 
 
-const app = express();
-
-app.use(express.json());
-connectionDB();
-
-//Para permitir acceso de otros dominios a nuestra api
+const app = express();  // Create an instance of express
+app.use(express.json()); //Middleware para que el servidor entienda los datos en formato JSON
+dotenv.config({path: '.env'}); //Configuracion de variables de entorno
 
 const allowedDomains = [process.env.FRONTEND_URL];
 const corsOptions = {
@@ -34,9 +31,11 @@ const corsOptions = {
 }
 app.use(cors(corsOptions));
 
-//Define Host and Port
-//const host = process.env.HOST || '0.0.0.0';
-const port = process.env.PORT || 5000;
+
+
+connectionDB(); // conect to DB
+
+const PORT = process.env.PORT || 5000; // Set the port
 
 
 app.use("/api/doctors", Dr_routes);
