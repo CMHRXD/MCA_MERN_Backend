@@ -18,22 +18,26 @@ const app = express();  // Create an instance of express
 app.use(express.json()); //Middleware para que el servidor entienda los datos en formato JSON
 dotenv.config({path: '.env'}); //Configuracion de variables de entorno
 
-/*
 const allowedDomains = [process.env.FRONTEND_URL];
 const corsOptions = {
+
     origin: function(origin, callback){
+
         if(!origin) return callback(null, true);
         if(allowedDomains.indexOf(origin) === -1){
+            console.log('origin: ' + origin);
             const msg = 'The CORS policy for this site does not ' +
             'allow access from the specified Origin.';
+
             return callback(new Error(msg), false);
+
         }
         return callback(null, true);
     }
 }
 app.use(cors(corsOptions));
 
-*/
+
 
 connectionDB(); // conect to DB
 
