@@ -11,7 +11,12 @@ const datesTable = mongoose.Schema({
     date: {
         type: String,
         require: true,
-    }
+    },
+    
+    doctor:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:'Doctor',
+    },
 
 }, { timestamps: true });
 

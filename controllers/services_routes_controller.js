@@ -2,19 +2,20 @@ import Services from "../models/services_model.js";
 
 const addService = (req, res) => {
     const service = new Services(req.body);
+    service.doctor = req.doctor._id;
     service.save()
         .then(service => res.json(service))
         .catch(err => res.json({ msg: err }))
 }
 
 const getServices = (req, res) => {
-    Services.find()
+    Services.find().where("doctor").equals(req.doctor)
         .then(services => res.json(services))
         .catch(err => res.json({ msg: err }))
 }
 
 const getOneService = (req, res) => {
-    Services.findById(req.params.id)
+    Services.findById(req.params.id).where("doctor").equals(req.doctor)
         .then(service => {
             if (!service) return res.json({ msg: "Servicio no Encontrado" });
             res.json(service);

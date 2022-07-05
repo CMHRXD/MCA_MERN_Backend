@@ -14,7 +14,7 @@ const addProduct = (req, res) => {
 }
 
 const getProducts = (req, res) => {
-    Products.find()
+    Products.find().where("doctor").equals(req.doctor)
         .then(products => {
             res.json(products);
         }
@@ -25,7 +25,7 @@ const getProducts = (req, res) => {
 }
 
 const getOneProduct = (req, res) => {
-    Products.findById(req.params.id)
+    Products.findById(req.params.id).where("doctor").equals(req.doctor)
         .then(product => {
             res.json(product);
         }

@@ -14,6 +14,11 @@ const servicesTable = mongoose.Schema({
         type:String,
         require:true,
         trim:true,
+    },
+    doctor: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Doctors",
+        require: true,
     }
     }, {timestamps:true}    
 );

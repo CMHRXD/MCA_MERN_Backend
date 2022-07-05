@@ -14,7 +14,7 @@ const addPacients = async(req,res) => {
 }
 
 const getPacients = async(req,res) => {
-    const pacients = await Pacients.find().where("doctor").equals(req.doctor);
+    const pacients = await Pacients.find().where("doctor").equals(req.doctor).select("c_i name phone");
     res.json(pacients)
 }
 

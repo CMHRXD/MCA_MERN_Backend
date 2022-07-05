@@ -68,7 +68,7 @@ const authenticate = async (req, res)=> {
             }
 
         }else{
-            return res.status(401).json({msg: "Usuario no Autenticado"});
+            return res.status(401).json({msg: "Usuario no Validado"});
         }
     }
     else{
