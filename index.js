@@ -1,4 +1,5 @@
 import express  from "express";
+import dotenv from "dotenv";
 import connectionDB from "./config/db.js";
 
 //Routes
@@ -45,6 +46,6 @@ app.use("/api/services", servicesRoutes);
 app.use("/api/dates", datesRoutes);
 app.use("/api/consults", consultRoutes);
 
-app.listen(port,()=>{
-    console.log(`El servidor se esta ejecutando en el Port:${port}`);
+app.listen(PORT,()=>{
+    console.log(`El servidor se esta ejecutando en el Port:${PORT}`);
 })
