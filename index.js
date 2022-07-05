@@ -18,6 +18,7 @@ const app = express();  // Create an instance of express
 app.use(express.json()); //Middleware para que el servidor entienda los datos en formato JSON
 dotenv.config({path: '.env'}); //Configuracion de variables de entorno
 
+/*
 const allowedDomains = [process.env.FRONTEND_URL];
 const corsOptions = {
     origin: function(origin, callback){
@@ -32,7 +33,7 @@ const corsOptions = {
 }
 app.use(cors(corsOptions));
 
-
+*/
 
 connectionDB(); // conect to DB
 
