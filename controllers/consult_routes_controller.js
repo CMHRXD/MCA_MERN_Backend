@@ -1,5 +1,6 @@
 import Consults from "../models/consult_model.js";
 import Pacients from "../models/pacients_model.js";
+import { dateFormat } from "../helpers/helpers_functions.js";
 
 const addConsult = (req, res) => {
     /*REQ BODY
@@ -49,7 +50,7 @@ const getConsults = async (req, res) => {
                     doctor: req.doctor.name,
                     products: consult.products,
                     services: consult.services,
-                    date: new Date(consult.date).toLocaleDateString(),
+                    date: dateFormat(consult.date),//new Date(consult.date).toLocaleDateString(), //Local Host works fine, but if the server is om a difrent region, it will show the wrong date format
                     total: consult.total,
                     symptoms: consult.symptoms,
                     treatment: consult.treatment,
