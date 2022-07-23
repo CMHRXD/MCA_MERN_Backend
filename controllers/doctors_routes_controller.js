@@ -190,7 +190,8 @@ const updatePassword = async (req,res) => {
         await doctor.save();
         res.json({msg:"Contraseña Actualizada"});
     } catch (error) {
-        res.json({msg:"No se ha podido actualizar la contraseña"});
+        //console.log(error)
+        res.status(400).json({msg:"No se ha podido actualizar la contraseña"});
     }
 }
 
