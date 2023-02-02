@@ -11,7 +11,7 @@ import datesRoutes from "./routes/dates_routes.js";
 import consultRoutes from "./routes/consult_routes.js";
 
 
-import cors from 'cors'; //Protege los accesos a la API
+import cors from 'cors'; //Protect API access 
 
 
 const app = express();  // Create an instance of express
