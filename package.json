@@ -4,6 +4,9 @@
   "type": "module",
   "description": "JS FullStack",
   "main": "index.js",
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "scripts": {
     "devServer": "nodemon index.js",
     "start": "node index.js"

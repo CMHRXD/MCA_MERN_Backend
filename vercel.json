@@ -1,0 +1,16 @@
+{
+    "version": 2, 
+    "builds": [
+        {
+            "src": "src/*.js",
+            "use": "@verceñ/node"
+            
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/"
+        }
+    ]
+}
